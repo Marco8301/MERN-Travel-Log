@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
-const cors = require('cors');
+// const cors = require('cors');
 const mongoose = require('mongoose');
 
 require('dotenv').config({
@@ -29,7 +29,7 @@ db.once('open', () => {
 app.use(express.json());
 app.use(morgan('common'));
 app.use(helmet());
-app.use(cors({ origin: process.env.CORS_ORIGIN }));
+// app.use(cors({ origin: process.env.CORS_ORIGIN }));
 
 // router routes
 // eslint-disable-next-line import/newline-after-import
@@ -43,7 +43,7 @@ app.use(middlewares.notFoundMiddleware);
 app.use(middlewares.errorsMiddleware);
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(__dirname + 'client/build'));
+  app.use(express.static('client/build'));
 }
 
 // Server listening
