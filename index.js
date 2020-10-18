@@ -6,7 +6,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 
 require('dotenv').config({
-  path: './src/config/config.env',
+  path: '/config/config.env',
 });
 
 const middlewares = require('./middlewares/middlewares');
@@ -28,8 +28,8 @@ db.once('open', () => {
 
 // APP middlewares
 app.use(express.json());
-app.use(morgan('common'));
-app.use(helmet());
+// app.use(morgan('common'));
+// app.use(helmet());
 // app.use(cors({ origin: process.env.CORS_ORIGIN }));
 
 // router routes
