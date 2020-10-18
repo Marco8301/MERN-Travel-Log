@@ -2,14 +2,13 @@ const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
 // const cors = require('cors');
+const dotenv = require('dotenv');
 const path = require('path');
 const mongoose = require('mongoose');
 
-require('dotenv').config({
-  path: '/config/config.env',
-});
+const config = dotenv.config({ path: './config/config.env' });
 
-const middlewares = require('./middlewares/middlewares');
+// const middlewares = require('./middlewares/middlewares');
 // APP init
 const app = express();
 
@@ -37,11 +36,11 @@ app.use(express.json());
 const logsRoute = require('./api/logs');
 app.use('/api/logs', logsRoute);
 
-// Not found middleware
-app.use(middlewares.notFoundMiddleware);
+// // Not found middleware
+// app.use(middlewares.notFoundMiddleware);
 
-// Error handling middleware
-app.use(middlewares.errorsMiddleware);
+// // Error handling middleware
+// app.use(middlewares.errorsMiddleware);
 
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
