@@ -47,6 +47,10 @@ app.use(middlewares.notFoundMiddleware);
 // Error handling middleware
 app.use(middlewares.errorsMiddleware);
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client'));
+}
+
 // Server listening
 const PORT = process.env.PORT || 1337;
 app.listen(PORT, () => console.log(`listening at http://localhost:${PORT}`));
