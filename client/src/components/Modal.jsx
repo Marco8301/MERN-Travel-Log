@@ -56,7 +56,8 @@ class Modal extends Component {
 
     render() { 
         return ( <div
-        style={{width:"20vw",
+        style={{
+            width:"9rem",
                 position: "absolute",
                 top: "5px",
                 right: "5px",
@@ -64,7 +65,7 @@ class Modal extends Component {
                 backgroundColor:"white",
                 padding: "15px"
             }}
-            >
+            >   
             <form onSubmit={this.submitForm}>
                 {this.state.err ? <h4 style={{color:"red"}}>{this.state.err}</h4> : <h4>Entrez votre destination</h4>} 
                 <div>
