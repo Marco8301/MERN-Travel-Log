@@ -14,7 +14,7 @@ class Cities extends PureComponent {
 
     getMarkers = async () => {
         try {
-            const getMarkers = await  axios.get("http://localhost:1337/api/logs");
+            const getMarkers = await  axios.get("api/logs");
             const {data} = getMarkers.data
             this.setState({cities: data})
         } catch (error) {
@@ -34,7 +34,7 @@ class Cities extends PureComponent {
 
     deleteMarker = async (id) => {
         try {
-            const deleteMarker = await axios.delete(`http://localhost:1337/api/logs/${id}`);
+            const deleteMarker = await axios.delete(`api/logs/${id}`);
             console.log(deleteMarker);
             this.getMarkers();
         } catch (error) {
