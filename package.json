@@ -7,7 +7,10 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "lint": "eslint src/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd client npm && run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build"
   },
   "keywords": [],
   "author": "",
