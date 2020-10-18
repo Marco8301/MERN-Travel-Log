@@ -70,27 +70,27 @@ class Modal extends Component {
                 {this.state.err ? <h4 style={{color:"red"}}>{this.state.err}</h4> : <h4>Entrez votre destination</h4>} 
                 <div>
                     <label htmlFor="api_key">API Key :</label>
-                    <input name="api_key" type="password" id="api_key" onChange={(e)=> this.updateValue(e)} />
+                    <input className="entry-form" name="api_key" type="password" id="api_key" onChange={(e)=> this.updateValue(e)} />
                 </div>
                 <div>
                     <label htmlFor="title">Name</label>
-                    <input name="title" type="text" id="title" onChange={(e)=> this.updateValue(e)} />
+                    <input className="entry-form" name="title" type="text" id="title" onChange={(e)=> this.updateValue(e)} />
                 </div>
                 <div>
                     <label htmlFor="description">Description</label>
-                    <input name="description" type="text" id="description" onChange={(e)=> this.updateValue(e)} />
+                    <input className="entry-form" name="description" type="text" id="description" onChange={(e)=> this.updateValue(e)} />
                 </div>
                 <div>
                     <label htmlFor="latitude">Latitude</label>
-                    <input name="latitude" type="text" id="latitude" onChange={(e)=> this.updateValue(e)} />
+                    <input className="entry-form" name="latitude" type="text" id="latitude" onChange={(e)=> this.updateValue(e)} />
                 </div>
                 <div>
                     <label htmlFor="longitude">Longitude</label>
-                    <input name="longitude" type="text" id="longitude" onChange={(e)=> this.updateValue(e)} />
+                    <input className="entry-form" name="longitude" type="text" id="longitude" onChange={(e)=> this.updateValue(e)} />
                 </div>
                 <div>
                     <label htmlFor="visitDate">visitDate</label>
-                    <input name="visitDate" type="date" id="visitDate" onChange={(e)=> this.updateValue(e)} />
+                    <input className="entry-form" name="visitDate" type="date" id="visitDate" onChange={(e)=> this.updateValue(e)} />
                 </div>
                 <input type="submit" value="Submit"/>
             </form>

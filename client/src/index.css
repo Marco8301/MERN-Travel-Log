@@ -22,9 +22,11 @@ body {
   max-width: 25rem;
 }
 
-.entry-form label,
-.entry-form input {
-  margin: 0.5rem;
+form h4 {
+  margin: 0;
+}
+
+.entry-form {
   display: block;
   width: 80%;
 }
