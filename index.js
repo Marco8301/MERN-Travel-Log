@@ -31,11 +31,6 @@ app.use(morgan('common'));
 app.use(helmet());
 app.use(cors({ origin: process.env.CORS_ORIGIN }));
 
-// Basic routes
-app.get('/', (req, res) => {
-  res.json({ message: 'Hello world !' });
-});
-
 // router routes
 // eslint-disable-next-line import/newline-after-import
 const logsRoute = require('./api/logs');
@@ -48,7 +43,7 @@ app.use(middlewares.notFoundMiddleware);
 app.use(middlewares.errorsMiddleware);
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(__dirname + '/client/build'));
+  app.use(express.static(__dirname + 'client/build'));
 }
 
 // Server listening
