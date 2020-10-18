@@ -48,7 +48,7 @@ app.use(middlewares.notFoundMiddleware);
 app.use(middlewares.errorsMiddleware);
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client'));
+  app.use(express.static(__dirname + '/client/build'));
 }
 
 // Server listening
