@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
-const helmet = require('helmet');
-const cors = require('cors');
+// const helmet = require('helmet');
+// const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -32,8 +32,8 @@ db.once('open', () => {
 // APP middlewares
 app.use(express.json());
 app.use(morgan('common'));
-app.use(helmet());
-app.use(cors({ origin: process.env.CORS_ORIGIN }));
+// app.use(helmet());
+// app.use(cors({ origin: process.env.CORS_ORIGIN }));
 app.use(cookieParser());
 
 // router routes
