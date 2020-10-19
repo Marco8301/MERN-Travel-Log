@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
 import axios from "axios";
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 
 
 const Landing = (props) => {
-    const jwt = Cookies.get('jwt')
+    // const jwt = Cookies.get('jwt')
     const [mail, setMail] = useState("");
     const [password, setPassword] = useState("");
-    console.log(jwt);
+    // console.log(jwt);
 
     const authLogin = async () => {
         const body = {mail: mail, 

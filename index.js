@@ -31,8 +31,8 @@ db.once('open', () => {
 
 // APP middlewares
 app.use(express.json());
-app.use(morgan('common'));
-app.use(helmet());
+// app.use(morgan('common'));
+// app.use(helmet());
 // app.use(cors({ origin: process.env.CORS_ORIGIN }));
 app.use(cookieParser());
 
