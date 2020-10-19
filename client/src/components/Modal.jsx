@@ -43,7 +43,7 @@ class Modal extends Component {
                         "x-api-key": api_key,
                     }
                 }
-                const newLogEntry = await axios.post("api/logs", body, config)
+                const newLogEntry = await axios.post("http://localhost:1337/api/logs", body, config)
                 console.log(newLogEntry);
                 this.clearState();
             }

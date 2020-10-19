@@ -4,6 +4,7 @@ const { API_KEY } = process.env;
 const router = express.Router();
 
 router.get('/', async (req, res, next) => {
+  console.log(req.user);
   try {
     const allLogs = await LogEntry.find();
     if (!allLogs) {
@@ -31,7 +32,6 @@ router.delete('/:id', async (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
-  console.log(req.headers);
   try {
     if (req.headers['x-api-key'] !== API_KEY) {
       return res.status(401);

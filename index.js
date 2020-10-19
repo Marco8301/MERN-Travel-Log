@@ -1,14 +1,18 @@
 const express = require('express');
-// const morgan = require('morgan');
-// const helmet = require('helmet');
+const morgan = require('morgan');
+const helmet = require('helmet');
 // const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 
 const config = dotenv.config({ path: './config/config.env' });
 
+// Middlewares
+const authMiddleware = require('./middlewares/authMiddleware');
 // const middlewares = require('./middlewares/middlewares');
+
 // APP init
 const app = express();
 
@@ -27,14 +31,17 @@ db.once('open', () => {
 
 // APP middlewares
 app.use(express.json());
-// app.use(morgan('common'));
-// app.use(helmet());
+app.use(morgan('common'));
+app.use(helmet());
 // app.use(cors({ origin: process.env.CORS_ORIGIN }));
+app.use(cookieParser());
 
 // router routes
 // eslint-disable-next-line import/newline-after-import
 const logsRoute = require('./api/logs');
-app.use('/api/logs', logsRoute);
+app.use('/api/logs', authMiddleware, logsRoute);
+const authRoute = require('./api/auth/auth');
+app.use('/api/auth', authRoute);
 
 // // Not found middleware
 // app.use(middlewares.notFoundMiddleware);
