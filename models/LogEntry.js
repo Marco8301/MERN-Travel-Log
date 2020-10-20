@@ -37,7 +37,13 @@ const LogEntrySchema = mongoose.Schema(
     visitDate: {
       type: Date,
       required: true,
-      // default: Date.now(),
+    },
+    createdBy: {
+      type: String,
+      // type: mongoose.Schema.Types.ObjectId,
+      // ref: 'Users',
+      // default: 'Marco',
+      required: true,
     },
   },
   { timestamps: true }

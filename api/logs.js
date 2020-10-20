@@ -32,6 +32,7 @@ router.delete('/:id', async (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
+  req.body.createdBy = req.user.name;
   try {
     if (req.headers['x-api-key'] !== API_KEY) {
       return res.status(401);

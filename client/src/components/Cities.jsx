@@ -35,7 +35,6 @@ class Cities extends PureComponent {
     deleteMarker = async (id) => {
         try {
             const deleteMarker = await axios.delete(`api/logs/${id}`);
-            console.log(deleteMarker);
             this.getMarkers();
         } catch (error) {
             console.log(error)
@@ -83,8 +82,10 @@ class Cities extends PureComponent {
                                 onClick={()=> this.clearPopUp(p.id)}
                                 >
                                     <h3>{city.title}</h3>
-                                    <h5>{city.description}</h5>
+                                    <h6>{city.description}</h6>
                                     <p>{city.comments}</p>
+                                    {city.createdBy ? <small>Added by : {city.createdBy}</small> : null}
+                                    
                                     <img src={city.image} alt=""/>
                                 </div>
                                 <button onClick={() => this.deleteMarker(city._id)}>Supprimer</button>

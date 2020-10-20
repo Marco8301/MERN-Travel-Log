@@ -18,17 +18,17 @@ const Landing = (props) => {
         e.preventDefault();
         props.loginAction(mail, password)
     }
-    console.log(props.error.msg)
     useEffect(() => {
         props.authAction();
     }, [])
+
 
     useEffect(() => {
         setError(props.error.msg)
     }, [props.error.msg])
     return (
         <>
-        {props.isAuthenticated ? <Mapbox/>
+        {sessionStorage.isAuth ? <Mapbox/>
         :   
         
         <div class="container col-lg-4 border p-4">

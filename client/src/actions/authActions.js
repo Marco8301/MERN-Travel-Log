@@ -29,6 +29,7 @@ export const loginAction = (mail, password) => {
         dispatch({
           type: CLEAR_ERRORS,
         });
+        sessionStorage.setItem('isAuth', true);
       })
       .catch((error) => {
         console.log(error.response);
@@ -58,12 +59,14 @@ export const authAction = () => {
         dispatch({
           type: CLEAR_ERRORS,
         });
+        sessionStorage.setItem('isAuth', true);
       })
       .catch((error) => {
         dispatch({
           type: AUTH_FAIL,
         });
         dispatch(getErrors(error.response.data.msg, error.response.status));
+        sessionStorage.clear();
       });
   };
 };
