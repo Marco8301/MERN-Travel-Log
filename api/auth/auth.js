@@ -3,6 +3,7 @@ const router = express.Router();
 const Users = require('../../models/Users');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const authMiddleware = require('../../middlewares/authMiddleware');
 
 // Register new user route
 router.post('/register', async (req, res) => {
@@ -56,6 +57,7 @@ router.post('/login', async (req, res) => {
 
     // Check first if user is in DB
     const userInDB = await Users.findOne({ mail });
+
     if (!userInDB) {
       return res
         .status(404)
@@ -85,6 +87,11 @@ router.post('/login', async (req, res) => {
   } catch (error) {
     return res.status(400).json({ err: error.message });
   }
+});
+
+router.get('/users', authMiddleware, async (req, res) => {
+  const user = await Users.findById(req.user.id).select('-password');
+  return res.status(200).json({ user });
 });
 
 module.exports = router;

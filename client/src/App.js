@@ -1,18 +1,10 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Switch,
-  NavLink,
-  Redirect,
-} from 'react-router-dom';
+
 import { Provider } from 'react-redux';
 
 import store from './store';
 
 import Landing from './components/Landing';
-import MapBox from './components/Mapbox';
 
 const App = () => {
   // const [viewport, setViewport] = useState({
@@ -26,12 +18,8 @@ const App = () => {
   return (
     <>
       <Provider store={store}>
-        <Router>
-          <Switch>
-            <Route path='/' exact component={Landing} />
-            <Route path='/map' render={(props) => <MapBox {...props} />} />
-          </Switch>
-          {/* <Modal />
+        <Landing />
+        {/* <Modal />
         <ReactMapGL
           {...viewport}
           mapStyle='mapbox://styles/thecjreynolds/ck117fnjy0ff61cnsclwimyay'
@@ -40,7 +28,6 @@ const App = () => {
         >
           <Cities />
         </ReactMapGL> */}
-        </Router>
       </Provider>
     </>
   );

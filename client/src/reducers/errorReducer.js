@@ -1,6 +1,6 @@
 import { CLEAR_ERRORS, GET_ERRORS } from '../actions/types';
 
-const initialState = { msg: {}, status: null, id: null };
+const initialState = { msg: '', status: null, id: null };
 
 export default (state = initialState, action) => {
   switch (action.type) {

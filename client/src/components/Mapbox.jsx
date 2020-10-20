@@ -1,22 +1,25 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Cities from './Cities';
 import Modal from './Modal';
 import ReactMapGL from 'react-map-gl';
-// import Cookies from 'js-cookie';
+import {authAction} from "../actions/authActions"
+import {connect} from "react-redux"
 
 
 
-const MapBox = () => {
-      // const jwt = Cookies.get('jwt');
-      // console.log(jwt)
-
-      const [viewport, setViewport] = useState({
+const MapBox = (props) => {
+    const [viewport, setViewport] = useState({
     width: '100vw',
     height: '100vh',
     latitude: 46.85837,
     longitude: 2.294481,
     zoom: 5,
   });
+
+    useEffect(() => {
+      props.authAction()
+  }, [])
+
     return (
         <div>
         <Modal />
@@ -32,4 +35,4 @@ const MapBox = () => {
     )
 }
 
-export default MapBox
+export default connect(null, {authAction})(MapBox)
