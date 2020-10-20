@@ -4,6 +4,8 @@ import {clearErrors} from "../actions/errorActions"
 import {loginAction} from "../actions/authActions"
 import {authAction} from "../actions/authActions"
 import Mapbox from './Mapbox'
+import { Button, Input } from 'reactstrap';
+
 // import Cookies from 'js-cookie';
 
 
@@ -27,15 +29,17 @@ const Landing = (props) => {
     return (
         <>
         {props.isAuthenticated ? <Mapbox/>
-        :   <div>
+        :   
+        
+        <div class="container col-lg-4 border p-4">
                 <h1>Connectez-vous pour accéder à la carte</h1>
                 {error !== "Token is needed" ? <h3>{error}</h3> : null}
                 <form action="post" onSubmit={(e) => handleSubmit(e)}>
                     <label htmlFor="mail">Mail</label>
-                    <input type="mail" name="mail" id="mail" onChange={(e) => setMail(e.target.value)}/>    
-                    <label htmlFor="password">Username</label>
-                    <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)}/> 
-                    <input type="submit" value="Submit"/>          
+                    <Input type="mail" name="mail" id="mail" onChange={(e) => setMail(e.target.value)}/>    
+                    <label htmlFor="password">Password</label>
+                    <Input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)}/>
+                    <Button type="submit" color="success" className="btn-sm">Submit</Button>
                 </form>
             </div> }
         </>
